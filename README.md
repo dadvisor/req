@@ -1,2 +1,2 @@
-# req
+# Request-maker
 A small Python program that makes a request to a web-service every second
