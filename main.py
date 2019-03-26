@@ -7,6 +7,7 @@ if __name__ == '__main__':
     running = True
 
     addresses = os.environ.get('HOST', 'web:5000').split(',')
+    print('Addresses: {}'.format(addresses))
 
     while running:
         try:
