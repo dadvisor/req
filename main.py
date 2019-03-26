@@ -1,3 +1,4 @@
+import os
 import time
 
 import requests
@@ -5,10 +6,13 @@ import requests
 if __name__ == '__main__':
     running = True
 
+    addresses = os.environ.get('HOST', 'web:5000').split(',')
+
     while running:
         try:
-            r = requests.get('http://web:5000/')
-            print(r.text)
+            for a in addresses:
+                r = requests.get('http://{}/'.format(a))
+                print(r.text)
             time.sleep(1)
         except KeyboardInterrupt:
             running = False
