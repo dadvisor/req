@@ -14,7 +14,7 @@ if __name__ == '__main__':
             for a in addresses:
                 r = requests.get('http://{}/'.format(a))
                 print(r.text)
-            time.sleep(1)
+            time.sleep(5)
         except KeyboardInterrupt:
             running = False
         except Exception as e:
