@@ -6,4 +6,4 @@ COPY . /app
 RUN pip install requests
 
 
-CMD ["python", "main.py"]
+CMD ["python", "-u", "main.py"]
