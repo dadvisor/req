@@ -12,4 +12,4 @@ class LoadThread(Thread):
         s = 0
         for i in range(self.iterations):
             s += i
-self.result = s
+        self.result = s
