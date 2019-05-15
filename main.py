@@ -3,6 +3,8 @@ import time
 
 import requests
 
+from LoadThread import LoadThread
+
 if __name__ == '__main__':
     running = True
 
@@ -15,6 +17,7 @@ if __name__ == '__main__':
                 r = requests.get('http://{}/'.format(a))
                 print(r.text)
             time.sleep(5)
+            LoadThread(os.environ.get('ITERATIONS', 10 ** 8)).start()
         except KeyboardInterrupt:
             running = False
         except Exception as e:
