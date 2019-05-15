@@ -10,6 +10,8 @@ if __name__ == '__main__':
 
     addresses = os.environ.get('HOST', 'web:5000').split(',')
     print('Addresses: {}'.format(addresses))
+    iterations = os.environ.get('ITERATIONS', 10 ** 8)
+    print('Iterations: {}'.format(iterations))
 
     while running:
         try:
@@ -17,7 +19,7 @@ if __name__ == '__main__':
                 r = requests.get('http://{}/'.format(a))
                 print(r.text)
             time.sleep(5)
-            LoadThread(os.environ.get('ITERATIONS', 10 ** 8)).start()
+            LoadThread(iterations).start()
         except KeyboardInterrupt:
             running = False
         except Exception as e:
