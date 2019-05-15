@@ -5,7 +5,7 @@ class LoadThread(Thread):
 
     def __init__(self, iterations):
         Thread.__init__(self)
-        self.iterations = iterations
+        self.iterations = int(iterations)
         self.result = -1
 
     def run(self):
