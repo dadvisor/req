@@ -10,16 +10,19 @@ if __name__ == '__main__':
 
     addresses = os.environ.get('HOST', 'web:5000').split(',')
     print('Addresses: {}'.format(addresses))
-    iterations = os.environ.get('ITERATIONS', 10 ** 8)
+    iterations = int(os.environ.get('ITERATIONS', 10 ** 8))
     print('Iterations: {}'.format(iterations))
+
+    sleep_time = int(os.environ.get('SLEEP_TIME', 5))
+    print('Sleep time: {}'.format(sleep_time))
 
     while running:
         try:
             for a in addresses:
                 r = requests.get('http://{}/'.format(a))
-                print(r.text)
-            time.sleep(5)
-            LoadThread(iterations).start()
+            time.sleep(sleep_time)
+            if iterations > 0:
+                LoadThread(iterations).start()
         except KeyboardInterrupt:
             running = False
         except Exception as e:

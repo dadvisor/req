@@ -3,9 +3,9 @@ from threading import Thread
 
 class LoadThread(Thread):
 
-    def __init__(self, iterations):
+    def __init__(self, iterations: int):
         Thread.__init__(self)
-        self.iterations = int(iterations)
+        self.iterations = iterations
         self.result = -1
 
     def run(self):
