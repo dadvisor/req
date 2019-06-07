@@ -9,4 +9,4 @@ Use the following command to run this container:
 Or build from source:
 
     docker build -t req .
-    docker run --name req -d req
+    docker run --name req --rm -d -e HOST=... req

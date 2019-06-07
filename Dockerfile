@@ -3,7 +3,9 @@ FROM python:3.6-slim
 WORKDIR /app
 COPY . /app
 
-RUN pip install requests
+RUN pip install requests locust
 
+ENV HOST http://google.com
+ENV NUM 10
 
-CMD ["python", "-u", "main.py"]
+CMD locust -f locust.py --host $HOST --no-web -c $NUM -r $NUM
