@@ -24,4 +24,4 @@ class WebsiteUser(HttpLocust):
     else:
         task_set = UserBehavior
     min_wait = 0
-    max_wait = 0
+    max_wait = 1000
