@@ -1,7 +1,9 @@
-from locust import task, TaskSequence
 import os
 
-load = 10
+from locust import task, TaskSequence
+
+load = 1000
+MAX_LOAD = 2 ** 22
 
 
 class UserBehavior(TaskSequence):
@@ -14,7 +16,7 @@ class LoadBehavior(TaskSequence):
     @task
     def with_load(self):
         global load
-        load *= 2
+        load = min(MAX_LOAD, load + 1000)
         self.client.get(f'/with_load?load={load}')
 
 
